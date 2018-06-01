@@ -69,12 +69,20 @@ Text Domain: Amativeness
     .navbar {
         position: absolute !important;
     }
+
+    .xm {
+        display: none;
+    }
 }
 
 @media (max-width: 800px) {
     .navbar .nav-right .search-form {
         display: none !important;
         position: relative !important;
+    }
+
+    .navbar .nav-right .online {
+        display: none !important;
     }
 
     .container {
@@ -927,7 +935,8 @@ form textarea {
 .navbar .nav-right {
     position: absolute;
     right: -43px;
-    top: 2.5px;
+    top: 0;
+    bottom: 0;
 }
 
 .navbar .search-form {
@@ -945,6 +954,7 @@ form textarea {
     border: none;
     border-radius: 2px;
     transition: .6s;
+    margin-top: 6.5px;
 }
 
 .navbar .search-form:hover .search-input {
@@ -1025,7 +1035,7 @@ form textarea {
 .header-description {
     height: 650px;
     position: relative;
-    background-image: url(https://diygod.b0.upaiyun.com/header-your-name2.jpg);
+    background-image: url(https://diygod.b0.upaiyun.com/header-sagiri.jpg);
     width: 100%;
     background-size: cover;
     background-position: center 50%;
@@ -1205,11 +1215,6 @@ form textarea {
     white-space: normal;
     word-break: break-all;
     word-wrap: break-word;
-}
-
-canvas {
-    position: relative;
-    top: -198px;
 }
 
 .animated {
@@ -2201,9 +2206,9 @@ footer .container {
     color: #fff;
 }
 
-/*#site-header h1 {*/
-    /*display: none;*/
-/*}*/
+#site-header h1 {
+    display: none;
+}
 
 /* blogChat */
 .chatroom-feedback {
@@ -2758,3 +2763,15 @@ a * {
 /*@keyframes snow{*/
     /*0%{background-position-x:0;background-position-y:0}50%{background-position-y:40rem}100%{background-position-x:40rem;background-position-y:80rem}*/
 /*}*/
+
+.single article.block .article-content {
+    margin-bottom: 40px;
+}
+
+.online {
+    float: left;
+    line-height: 38px;
+    color: #fff;
+    margin-right: 20px;
+    font-size: 12px;
+}

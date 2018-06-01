@@ -30,7 +30,7 @@
         ga('create', 'UA-48084758-1', 'auto');
         ga('send', 'pageview');
     </script>
-    <script type="text/javascript"> var _paq = _paq || []; _paq.push(["setCookieDomain", "*.anotherhome.net"]); _paq.push(["setDomains", ["*.anotherhome.net","*.www.anotherhome.net","*.anotherhome.net","*.www.anotherhome.net"]]); _paq.push(['trackPageView']); _paq.push(['enableLinkTracking']); (function() { var u="//stats.lwl12.com/"; _paq.push(['setTrackerUrl', u+'piwik.php']); _paq.push(['setSiteId', '3']); var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.async=true; g.defer=true; g.src='//stats.cdn.lwl12.com/piwik.js'; s.parentNode.insertBefore(g,s); })(); </script> <noscript><p><img src="//stats.lwl12.com/piwik.php?idsite=3&rec=1" style="border:0;" alt="" /></p></noscript>
+ 
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -64,6 +64,7 @@
                 </div>
             <?php endif; ?>
             <div class="nav-right">
+                <div class="online"><span id="online-count">0</span>人在线</div>
                 <form class="search-form" method="post" action="<?php bloginfo('url'); ?>">
                     <input type="text" name="s" class="search-input" placeholder="站内搜索">
                     <button type="submit" class="search-submit sousuo">
@@ -95,7 +96,7 @@
                     style="color: #009925;">the</span> <span style="color: #d50f25;">World.</span></a></h2>
     </div>
     <div class="xm">
-        <img src="https://diygod.b0.upaiyun.com/xm.png">
+        <canvas id="live2d" width="150" height="400" class="live2d"></canvas>
     </div>
     <div class="container" id="content">
         <div class="article-list">

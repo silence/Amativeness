@@ -1,5 +1,6 @@
 require('balloon-css/balloon.min.css');
 require('owo/dist/OwO.min.css');
+require('dplayer/dist/DPlayer.min.css');
 
 const DPlayer = require('dplayer');
 const Headroom = require('headroom.js');
@@ -201,9 +202,9 @@ $(document).ready(function ($) {
         }
         loliAudio.play();
     }
-    document.getElementsByClassName('xm')[0].addEventListener('click', function () {
-        playLoli();
-    });
+    // document.getElementsByClassName('xm')[0].addEventListener('click', function () {
+    //     playLoli();
+    // });
 
     // 关闭侧边栏
     document.getElementsByClassName('close-side')[0].addEventListener('click', function () {
@@ -309,6 +310,65 @@ $(document).ready(function ($) {
         $(".post a").attr("target", "_blank");
 
         // DPlayer
+        if (page.find('#dplayer8').length) {
+            var dp8 = new DPlayer({
+                element: document.getElementById('dplayer8'),
+                autoplay: false,
+                theme: '#FADFA3',
+                loop: true,
+                screenshot: true,
+                video: {
+                    url: 'https://dplayer.b0.upaiyun.com/wxwlive/1216/2/index.m3u8',
+                    pic: 'https://dplayer.b0.upaiyun.com/wxwlive/1216/1/poster.png'
+                },
+                danmaku: {
+                    id: 'f9e80f1d90cd12f5',
+                    api: 'https://api.prprpr.me/dplayer/',
+                    token: 'tokendemo',
+                    addition: ['https://dplayer.b0.upaiyun.com/wxwlive/1216/2/danmaku.json']
+                }
+            });
+        }
+        if (page.find('#dplayer7').length) {
+            var dp7 = new DPlayer({
+                element: document.getElementById('dplayer7'),
+                autoplay: true,
+                theme: '#FADFA3',
+                loop: true,
+                screenshot: true,
+                video: {
+                    url: 'https://dplayer.b0.upaiyun.com/wxwlive/1216/1/index.m3u8',
+                    pic: 'https://dplayer.b0.upaiyun.com/wxwlive/1216/1/poster.png'
+                },
+                danmaku: {
+                    id: '8810755617f77d00',
+                    api: 'https://api.prprpr.me/dplayer/',
+                    token: 'tokendemo',
+                    addition: ['https://dplayer.b0.upaiyun.com/wxwlive/1216/1/danmaku.json']
+                }
+            });
+        }
+        if (page.find('#dplayer6').length) {
+            var dp6 = new DPlayer({
+                element: document.getElementById('dplayer6'),
+                autoplay: false,
+                theme: '#FADFA3',
+                loop: true,
+                screenshot: false,
+                preload: 'none',
+                video: {
+                    url: 'https://api.prprpr.me/dplayer/video/bilibili?aid=7185185',
+                    pic: 'https://dplayer.b0.upaiyun.com/%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97.jpg'
+                },
+                danmaku: {
+                    id: 'AA6061E1FBE38E61',
+                    api: 'https://api.prprpr.me/dplayer/',
+                    token: 'tokendemo',
+                    maximum: 3000,
+                    addition: ['https://api.prprpr.me/dplayer/bilibili?aid=7185185']
+                }
+            });
+        }
         if (page.find('#dplayer5').length) {
             var dp5 = new DPlayer({
                 element: document.getElementById('dplayer5'),
@@ -350,105 +410,66 @@ $(document).ready(function ($) {
             });
         }
         if (page.find('#dplayer3').length) {
-            const xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = () => {
-                if (xhr.readyState === 4) {
-                    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
-                        const response = JSON.parse(xhr.responseText);
-                        var dp3 = new DPlayer({
-                            element: document.getElementById('dplayer3'),
-                            autoplay: false,
-                            theme: '#FADFA3',
-                            loop: true,
-                            preload: 'none',
-                            screenshot: false,
-                            video: {
-                                url: response.durl[0].url,
-                                pic: 'https://dplayer.b0.upaiyun.com/【微小微】玖月奇迹－踩踩踩.jpg'
-                            },
-                            danmaku: {
-                                id: '18EE8C0B4653D5F4',
-                                api: 'https://api.prprpr.me/dplayer/',
-                                token: 'tokendemo',
-                                maximum: 3000,
-                                addition: ['https://api.prprpr.me/dplayer/bilibili?aid=2903742']
-                            }
-                        });
-                    }
-                    else {
-                        console.log('Request was unsuccessful: ' + xhr.status);
-                    }
+            var dp3 = new DPlayer({
+                element: document.getElementById('dplayer3'),
+                autoplay: false,
+                theme: '#FADFA3',
+                loop: true,
+                screenshot: false,
+                preload: 'none',
+                video: {
+                    url: 'https://api.prprpr.me/dplayer/video/bilibili?aid=2903742',
+                    pic: 'https://dplayer.b0.upaiyun.com/【微小微】玖月奇迹－踩踩踩.jpg'
+                },
+                danmaku: {
+                    id: '18EE8C0B4653D5F4',
+                    api: 'https://api.prprpr.me/dplayer/',
+                    token: 'tokendemo',
+                    maximum: 3000,
+                    addition: ['https://api.prprpr.me/dplayer/bilibili?aid=2903742']
                 }
-            };
-            xhr.open('get', 'https://api.prprpr.me/dplayer/video/bilibili?aid=2903742', true);
-            xhr.send(null);
+            });
         }
         if (page.find('#dplayer2').length) {
-            const xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = () => {
-                if (xhr.readyState === 4) {
-                    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
-                        const response = JSON.parse(xhr.responseText);
-                        var dp2 = new DPlayer({
-                            element: document.getElementById('dplayer2'),
-                            autoplay: false,
-                            theme: '#FADFA3',
-                            loop: true,
-                            preload: 'none',
-                            screenshot: false,
-                            video: {
-                                url: response.durl[0].url,
-                                pic: 'https://dplayer.b0.upaiyun.com/微小微-江南皮革厂倒闭了.jpg'
-                            },
-                            danmaku: {
-                                id: '5rGf5Y2X55qu6Z2p',
-                                api: 'https://api.prprpr.me/dplayer/',
-                                token: 'tokendemo',
-                                maximum: 3000,
-                                addition: ['https://api.prprpr.me/dplayer/bilibili?aid=4045652']
-                            }
-                        });
-                    }
-                    else {
-                        console.log('Request was unsuccessful: ' + xhr.status);
-                    }
+            var dp2 = new DPlayer({
+                element: document.getElementById('dplayer2'),
+                autoplay: false,
+                theme: '#FADFA3',
+                loop: true,
+                screenshot: false,
+                preload: 'none',
+                video: {
+                    url: 'https://api.prprpr.me/dplayer/video/bilibili?aid=4045652',
+                    pic: 'https://dplayer.b0.upaiyun.com/微小微-江南皮革厂倒闭了.jpg'
+                },
+                danmaku: {
+                    id: '5rGf5Y2X55qu6Z2p',
+                    api: 'https://api.prprpr.me/dplayer/',
+                    token: 'tokendemo',
+                    maximum: 3000,
+                    addition: ['https://api.prprpr.me/dplayer/bilibili?aid=4045652']
                 }
-            };
-            xhr.open('get', 'https://api.prprpr.me/dplayer/video/bilibili?aid=4045652', true);
-            xhr.send(null);
+            });
         }
         if (page.find('#dplayer1').length) {
-            const xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = () => {
-                if (xhr.readyState === 4) {
-                    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
-                        const response = JSON.parse(xhr.responseText);
-                        var dp1 = new DPlayer({
-                            element: document.getElementById('dplayer1'),
-                            autoplay: false,
-                            theme: '#FADFA3',
-                            loop: true,
-                            screenshot: false,
-                            preload: 'none',
-                            video: {
-                                url: response.durl[0].url,
-                                pic: 'https://dplayer.b0.upaiyun.com/若能绽放光芒.png'
-                            },
-                            danmaku: {
-                                id: '9E2E3368B56CDBB4',
-                                api: 'https://api.prprpr.me/dplayer/',
-                                token: 'tokendemo',
-                                maximum: 3000
-                            }
-                        });
-                    }
-                    else {
-                        console.log('Request was unsuccessful: ' + xhr.status);
-                    }
+            var dp1 = new DPlayer({
+                element: document.getElementById('dplayer1'),
+                autoplay: false,
+                theme: '#FADFA3',
+                loop: true,
+                screenshot: false,
+                preload: 'none',
+                video: {
+                    url: 'https://api.prprpr.me/dplayer/video/bilibili?aid=1714157',
+                    pic: 'https://dplayer.b0.upaiyun.com/若能绽放光芒.png'
+                },
+                danmaku: {
+                    id: '9E2E3368B56CDBB4',
+                    api: 'https://api.prprpr.me/dplayer/',
+                    token: 'tokendemo',
+                    maximum: 3000
                 }
-            };
-            xhr.open('get', 'https://api.prprpr.me/dplayer/video/bilibili?aid=1714157', true);
-            xhr.send(null);
+            });
         }
 
         // APlayer
@@ -571,18 +592,12 @@ $(document).ready(function ($) {
             }
         }
         if (page.find('.like-vote').length) {
-            $.getJSON("https://www.anotherhome.net/api/vote/like.php?action=get", function (data) {
-                $('.like-vote span').html(data.like);
+            $.getJSON("https://api.prprpr.me/count/?id=DIYgod-like&action=get", function (data) {
+                $('.like-vote span').html(data);
             });
             $('.like-vote').click(function () {
-                $.getJSON("https://www.anotherhome.net/api/vote/like.php?action=add", function (data) {
-                    if (data.success) {
-                        $('.like-vote span').html(data.like);
-                        $('.like-title').html('我也喜欢你 (*≧▽≦)');
-                    }
-                    else {
-                        $('.like-title').html('你的爱我已经感受到了~');
-                    }
+                $.getJSON("https://api.prprpr.me/count/?id=DIYgod-like&action=add", function (data) {
+                    $('.like-vote span').html(data);
                 });
             });
         }
@@ -681,11 +696,13 @@ $(document).ready(function ($) {
             type: jQuery(this).attr('method'),
             beforeSend: function () {
                 addComment.createButterbar("正在提交,好累呀~");
+                $('.form-submit input').attr('disabled', 'disabled');
                 NProgress.set(0.7);
             },
             error: function(request) {
                 var t = addComment;
                 t.createButterbar(request.responseText);
+                $('.form-submit input').attr('disabled', false);
                 NProgress.set(1.0);
             },
             success: function(data) {
@@ -715,6 +732,7 @@ $(document).ready(function ($) {
                     }
                 }
                 t.createButterbar("提交");
+                $('.form-submit input').attr('disabled', false);
                 NProgress.set(1.0);
                 cancel.style.display = 'none';
                 cancel.onclick = null;
@@ -801,4 +819,123 @@ $(document).ready(function ($) {
         })
     }
     ajaxCommentPage();
+
+    // live2d
+    loadlive2d("live2d", "/wp-content/themes/Amativeness/lib/live2d/22/22.model.json");
+
+    /*!
+     * online
+     * Copyright(c) 2016 luojia <luojia@luojia.me>
+     * MIT Licensed
+     */
+    class Online{
+        constructor(addr){
+            this.addr=addr;
+            this.groups=new Set();
+            this.on=false;
+            this.waiting=false;
+            this.onOnlineChange=null;
+            this.pinger=setInterval(()=>{this.opened&&this.ws.send('');},20000);
+            this.user=`${conv(Date.now(),10,62)}-${randomUser()}`;
+            this.ws=null;
+            if(window.localStorage){//use stored user sign
+                var user=localStorage.getItem('online_user');
+                if(!user)localStorage.setItem('online_user',this.user);//save the user
+                else{this.user=user;}//restore the user
+            }
+            if(addr){
+                this.on=true;
+                this.connet();
+            }
+        }
+        get opened(){return this.ws&&this.ws.readyState===1;}
+        enter(name){
+            if(typeof name !== 'string')throw('name is not a string:'+name);
+            this.groups.add(name);
+            if(this.opened)
+                this.ws.send(JSON.stringify({_:'enter',g:name,u:this.user}));
+            return this;
+        }
+        leave(name){
+            if(typeof name !== 'string')throw('name is not a string:'+name);
+            if(this.opened && this.groups.delete(name)){
+                this.ws.send(JSON.stringify({_:'leave',g:name}));
+            }
+            return this;
+        }
+        leaveAll(){
+            if(this.opened)
+                for(let g of this.groups)this.leave(g);
+            return this;
+        }
+        _report(data){
+            this.onOnlineChange&&this.onOnlineChange(data);
+        }
+        connet(addr){
+            this.waiting=false;
+            if(addr)this.addr=addr;
+            if(this.on===false)return;
+            if(this.opened)return;
+            let ws=this.ws=new WebSocket(this.addr);
+            ws.onmessage=m=>{
+                if(m.data==='connected'){
+                    for(let g of this.groups)this.enter(g);
+                    return;
+                }
+                let msg=JSON.parse(m.data);
+                switch(msg._){
+                    case 'ol':{
+                        msg.c=parseInt(msg.c,32);
+                        msg.u=parseInt(msg.u,32);
+                        this._report(msg);
+                        break;
+                    }
+                }
+            }
+            ws.onclose=e=>{
+                if(this.waiting)return;
+                for(let g of this.groups)this._report({g:g,c:0,u:0});
+                this.waiting=true;
+                setTimeout(()=>{this.connet()},5000);
+            }
+            ws.onerror=e=>{
+                ws.onclose();
+            }
+            return this;
+        }
+        close(){
+            this.on=false;
+            this.ws.close();
+            clearInterval(this.pinger);
+        }
+    }
+
+    function randomUser(){
+        return conv(Math.round(99999999*Math.random()),10,62);
+    }
+
+    //gist: https://gist.coding.net/u/luojia/c33a7e50d9634a1d9084ebd71c468114/
+    function conv(n,o,t,olist,tlist){//数,原进制,目标进制[,原数所用字符表,目标字符表]
+        var dlist='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            tnum=[],m,negative=((n+='').trim()[0]=='-'),decnum=0;
+        olist||(olist=dlist);
+        tlist||(tlist=dlist);
+        if(negative)n=n.slice(1);
+        for(var i=n.length;i--;)
+            decnum+=olist.indexOf(n[i])*Math.pow(o,n.length-i-1);
+        for(;decnum!=0;tnum.unshift(tlist[m])){
+            m=decnum%t;
+            decnum=Math.floor(decnum/t);
+        }
+        decnum&&tnum.unshift(tlist[decnum]);
+        return (negative?'-':'')+tnum.join('');
+    }
+
+    var ol = new Online('wss://api.prprpr.me/online/');
+    ol.enter(document.domain);
+    ol.onOnlineChange = function(data) {
+        // console.log(data)
+        document.getElementById('online-count').innerHTML = data.u;
+    }
+
 });
